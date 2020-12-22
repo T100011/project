@@ -35,10 +35,42 @@ const personalMovieDB = {
 
 // personalMovieDB.movies[a] = b;
 // personalMovieDB.movies[c] = d;
+// первое решение
+// for (let i = 0; i < 2; i++) {
+//     const a = prompt('Один из последних просмотренных фильмов?', ''),
+//           b = prompt('На сколько оцените его?', '');
 
-for (let i = 0; i < 2; i++) {
+//     if (a != null && b != null && a != '' && b != '' && a.length < 50) {
+//         personalMovieDB.movies[a] = b;
+//         console.log('done');
+//     } else {
+//         console.log('error');
+//         i--;
+//     }
+        
+// }
+// второе решение
+// let i = 0;
+// while (i < 2) {
+//     i++;
+//     const a = prompt('Один из последних просмотренных фильмов?', ''),
+//           b = prompt('На сколько оцените его?', '');
+
+//     if (a != null && b != null && a != '' && b != '' && a.length < 50) {
+//         personalMovieDB.movies[a] = b;
+//         console.log('done');
+//     } else {
+//         console.log('error');
+//         i--;
+//     }
+
+// }
+// третье решение
+let i = 0;
+do {
+    i++;
     const a = prompt('Один из последних просмотренных фильмов?', ''),
-          b = prompt('На сколько оцените его?', '');
+            b = prompt('На сколько оцените его?', '');
 
     if (a != null && b != null && a != '' && b != '' && a.length < 50) {
         personalMovieDB.movies[a] = b;
@@ -46,9 +78,9 @@ for (let i = 0; i < 2; i++) {
     } else {
         console.log('error');
         i--;
-    }
-        
+    } 
 }
+while (i <2);
 
 if (personalMovieDB.count < 10){
     console.log('Просмотрено довольно мало фильмов');
