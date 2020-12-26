@@ -82,3 +82,65 @@ function addX(x) {
 const addThree = addX (3);
 let d = addThree(c);
 console.log('exzmple partial application', d);
+
+// замыкания изнутри
+let name = 'John';
+function sayHi() {
+    console.log('Hi, ' + name);
+}
+name = 'Pete';
+sayHi();
+
+function makeWorker() {
+    let name ='Pete';
+    return function() {
+        console.log(name);
+    };
+}
+let name = 'John';
+let work = makeWorker();
+work();
+
+function sayHiBye(firstName, lastName) {
+    function getFullname() {
+        return firstName + " " + lastName;
+    }
+    console.log('Hello, ' + getFullname());
+    console.log('Bye, ' + getFullname());
+}
+
+function User(name) {
+    this.sayHi = function() {
+        console.log(name);
+    };
+}
+let user = new User('John');
+user.sayHi();
+
+function makeCounter() {
+    let count = 0;
+
+    return function() {
+        return count++;
+    };
+}
+let counter = makeCounter();
+console.log(counter());
+console.log(counter());
+console.log(counter());
+
+function makeCounter() {
+    let count = 0;
+
+    return function() {
+        return count++;
+    };
+}
+
+let counter1 = makeCounter();
+let counter2 = makeCounter();
+
+console.log(counter1());
+console.log(counter1());
+console.log(counter2());
+
