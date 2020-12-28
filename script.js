@@ -1,29 +1,43 @@
 'use strict';
-// callback-Функции
+// Объекты и деструктризация объектов ES 6
 
-function first() {
-    // Do something
-    setTimeout(function() {
-        console.log(1);
-    }, 500); 
+// создаем новый объект через new Object()
+const = new Object();
+
+
+// создаем новый объект через {}
+const options = {
+    name: 'test',
+    // ключ (свойство name): значение (test),
+    width: 1024,
+    height: 1024,
+    // записываем color: {}, тоже объект 
+    colors: {
+        border: 'black',
+        bg: 'red'
+    }
+
 }
 
-function second() {
-    console.log(2);
+// получаем доступ к свойству объекта при помощи () . или [''] 
+// console.log(options.name);
+// console.log(options['colors']['border']);
+// console.log(options);
+// удалим свойство из объекта с помощью delete 
+// delete options.name;
+
+// console.log(options);
+
+// как перебрать свойства объекта при помощи for (каждое свойство let кеу in) 
+
+for (let key in options) {
+    // [object Object] пытаемся добраться с помощью if 
+    if (typeof(options[key]) === 'object') {
+        for(let i in options[key]) {
+            console.log(`Свойство ${i} имеет значение ${options[key][i]} `);
+            // добираемся до объекта внутри объекта options[key][i]
+        }
+    }
+    console.log(`Свойство ${key} имеет значение ${options[key]} `);
+    // options[key] значение ключа
 }
-
-first();
-second();
-
-// callback функция -это функция которая должна быть выполнена после того как другая функция завершила свое выполнение
-
-function learnJS(lang, callback) {
-    console.log(`Я учу: ${lang}`);
-    callback();
-}
-
-function done() {
-    console.log('Я прошел этот урок!');
-}
-
-learnJS('Javascript', done);
