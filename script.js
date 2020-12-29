@@ -98,3 +98,68 @@ rabbit.run = function(n) {
 }
 rabbit.run(10);
 rabbit.run(5);
+
+// Деструктуризация объекта https://learn.javascript.ru/destructuring#destrukturizatsiya-obekta
+
+// базовый синтаксис 
+let {var1, var2} = {var1: .., var2: ... };
+
+let options = {
+    title: 'Menu',
+    width: 100,
+    height: 200
+};
+
+let {title, width, height} = options;
+console.log(title);
+console.log(width);
+console.log(height);
+
+// переход свойств объекта в определенные переменные например w и h  через : 
+let options = {
+    title: 'Menu',
+    width: 100,
+    height: 200
+};
+
+let {title, width: w, height: h} = options;
+console.log(title);
+console.log(w);
+console.log(h);
+
+// указываем отсутствующие свойства в объекте через знак = в деструктуризации 
+let options = {
+    title: 'Menu'
+};
+
+let {title, width = 100, height = 200} = options;
+console.log(title);
+console.log(width);
+console.log(height);
+
+// используем : и знак равно 
+let options = {
+    title: 'Menu'
+};
+
+let {title, width: w = 100, height: h = 200} = options;
+console.log(title);
+console.log(w);
+console.log(h);
+
+// Вложенные деструктуризации 
+ let options = {
+     size: {
+         width: 100,
+         height: 200
+     },
+     items: ['Пончик', 'Пирожное']
+ }
+
+ let {title = 'Menu', size: {width, height}, items: [items1, items2]} = options;
+ console.log(title);
+ console.log(width);
+ console.log(height);
+ console.log(items1);
+ console.log(items2);
+//  Деструктуризация позволяет разбивать объект или массив на переменные при присвоении.
