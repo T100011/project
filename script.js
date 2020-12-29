@@ -1,183 +1,54 @@
 'use strict';
-// Объекты и деструктризация объектов ES 6
+// Массивы и псевдомассивы т.е.структура которая содержит элементы по порядку
 
-// создаем новый объект через new Object()
-const = new Object();
+const arr = [2, 13, 26, 8, 10];
+// осортировка чисел идет как строки т.к используется алгоритм быстрой сортировки
+arr.sort(compareNum);
+
+// arr[99] = 0;
+// console.log(arr.length);
+console.log(arr);
+// функция сравнения чисел 
+function compareNum(a, b) {
+    return a - b;
+}
+
+// метод array.forEach с колбек функцией применяется к каждому элементу массива
+// item сам элемент, i номер по порядку, arr ссылка на массив который перебираем 
+// arr.forEach(function(item, i, arr ) {
+//     console.log(`${i}: ${item} внутри массива ${arr}`)
+// });
 
 
-// создаем новый объект через {}
-const options = {
-    name: 'test',
-    // ключ (свойство name): значение (test),
-    width: 1024,
-    height: 1024,
-    // записываем color: {}, тоже объект 
-    colors: {
-        border: 'black',
-        bg: 'red'
-    },
-    // делаем собственный метод подсчитывающий кол-во ключей 
-    makeTest: function() {
-        console.log("Test");
-    }
-};
-// запускаем метод maketest ()-что то идет в работу функция или метод
-options.makeTest();
+// метод pop удаляет элемент из конца массива
 
-// делаем деструктуризацию объекта   вскобки записываем те переменные которые мы хоти вытащить
-const {border, bg} = options.colors;
-console.log(border);
+// arr.pop();
 
-// выводим ключи из объекта при помощи метода Object.keys()
-// console.log(Object.keys(options));
-// при помощи свойства length подсчитываем количество ключей 
-// console.log(Object.keys(options).length);
+// метод push добавляет элемент в конец массива 
 
-// получаем доступ к свойству объекта при помощи () . или [''] 
-// console.log(options.name);
-// console.log(options['colors']['border']);
-// console.log(options);
-// удалим свойство из объекта с помощью delete 
-// delete options.name;
+// arr.push(10);
 
-// console.log(options);
+// console.log(arr);
 
-// как перебрать свойства объекта при помощи for (каждое свойство let кеу in) 
-// делаем счетчик с помощью переменной counter 
-// let counter = 0;
-// for (let key in options) {
-//     // [object Object] пытаемся добраться с помощью if 
-//     if (typeof(options[key]) === 'object') {
-//         for(let i in options[key]) {
-//             console.log(`Свойство ${i} имеет значение ${options[key][i]} `);
-//             // добираемся до объекта внутри объекта options[key][i]
-//             // counter++;
-//         }
-//     } else {
-//         console.log(`Свойство ${key} имеет значение ${options[key]} `);
-//         // options[key] значение ключа
-//         counter++;
-//     }
+// перебираем массив через цикл for 
+
+// for (let i = 0; i < arr.length; i++) {
+//     console.log(arr[i]);
 // }
-// console.log(counter);
 
-// Объекты Javascript в примерах 
-// https://javascript.ru/tutorial/object/intro Объекты Javascript в примерах 
+// перебираем массив через цикл for of
 
-// создание объекта 2 способа
+// for (let value of arr) {
+//     console.log(value);
+// }
 
-var 0 = new Object();
-var o = {};
+// // метод split(s) превращает строку в массив s разделитель 
+// const str = prompt('','');
+// const products = str.split(', ');
+// // метод sort(s) метод сортировки по алфавиту или цифрам как строки
+// products.sort();
+// // метод join(s) превращает строку в массив s разделитель 
+// console.log(products.join('; '));
 
-// добавление свойств в объект 2 способа 
-o.test = 5;
-o['test'] = 5;
-
-// доступ к свойству осуществляется следующим способом 
-alert(o.test)
-alert(o['test'])
-
-// если у объекта нет свойства например нет св-ва test то результат будет undefined
-
-// удаление свойств при помощи оператора delete 
-o.test = 5;
-delete o.test;
-
-// расширенное создание объекта при помощи списка { ..., ключ: значение, ...} 
-var o = {
-    test: 5;
-    bla: true
-}
-
-// добавление метода в объект o.run = function (n) {} 
-// создаем объект rabbit 
-var rabbit = {};
-// добавляем метод run в объект 
-rabbit.run = function(n) {
-    console.log(`Пробежал ${n} метров`);
-}
-rabbit.run(10);
-rabbit.run(5);
-
-// Деструктуризация объекта https://learn.javascript.ru/destructuring#destrukturizatsiya-obekta
-
-// базовый синтаксис 
-let {var1, var2} = {var1: .., var2: ... };
-
-let options = {
-    title: 'Menu',
-    width: 100,
-    height: 200
-};
-
-let {title, width, height} = options;
-console.log(title);
-console.log(width);
-console.log(height);
-
-// переход свойств объекта в определенные переменные например w и h  через : 
-let options = {
-    title: 'Menu',
-    width: 100,
-    height: 200
-};
-
-let {title, width: w, height: h} = options;
-console.log(title);
-console.log(w);
-console.log(h);
-
-// указываем отсутствующие свойства в объекте через знак = в деструктуризации 
-let options = {
-    title: 'Menu'
-};
-
-let {title, width = 100, height = 200} = options;
-console.log(title);
-console.log(width);
-console.log(height);
-
-// используем : и знак равно 
-let options = {
-    title: 'Menu'
-};
-
-let {title, width: w = 100, height: h = 200} = options;
-console.log(title);
-console.log(w);
-console.log(h);
-
-// Вложенные деструктуризации 
- let options = {
-     size: {
-         width: 100,
-         height: 200
-     },
-     items: ['Пончик', 'Пирожное']
- }
-
- let {title = 'Menu', size: {width, height}, items: [items1, items2]} = options;
- console.log(title);
- console.log(width);
- console.log(height);
- console.log(items1);
- console.log(items2);
-//  Деструктуризация позволяет разбивать объект или массив на переменные при присвоении.
-
-// Дескрипторы, геттеры и сеттеры свойств https://learn.javascript.ru/descriptors-getters-setters
-// Флаги и дескрипторы свойств
-// синтаксис метод  Object.getOwnPropertyDescriptor позволяет получить всю информацию об объекте 
-
-let descriptor = Object.getOwnPropertyDescriptor(obj, propertyName);
-
-// пример 
-let user = {
-    name: 'John'
-};
-let descriptor = Object.getOwnPropertyDescriptor(user, 'name');
-
-console.log(JSON.stringify(descriptor, null, 2) );
-// дескриптор свойства 
-
-
+// псевдомассивы в отличии от обычных массивов не используют методы 
 
