@@ -60,3 +60,41 @@ console.log(border);
 //     }
 // }
 // console.log(counter);
+
+// Объекты Javascript в примерах 
+// https://javascript.ru/tutorial/object/intro Объекты Javascript в примерах 
+
+// создание объекта 2 способа
+
+var 0 = new Object();
+var o = {};
+
+// добавление свойств в объект 2 способа 
+o.test = 5;
+o['test'] = 5;
+
+// доступ к свойству осуществляется следующим способом 
+alert(o.test)
+alert(o['test'])
+
+// если у объекта нет свойства например нет св-ва test то результат будет undefined
+
+// удаление свойств при помощи оператора delete 
+o.test = 5;
+delete o.test;
+
+// расширенное создание объекта при помощи списка { ..., ключ: значение, ...} 
+var o = {
+    test: 5;
+    bla: true
+}
+
+// добавление метода в объект o.run = function (n) {} 
+// создаем объект rabbit 
+var rabbit = {};
+// добавляем метод run в объект 
+rabbit.run = function(n) {
+    console.log(`Пробежал ${n} метров`);
+}
+rabbit.run(10);
+rabbit.run(5);
