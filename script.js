@@ -15,9 +15,23 @@ const options = {
     colors: {
         border: 'black',
         bg: 'red'
+    },
+    // делаем собственный метод подсчитывающий кол-во ключей 
+    makeTest: function() {
+        console.log("Test");
     }
+};
+// запускаем метод maketest ()-что то идет в работу функция или метод
+options.makeTest();
 
-}
+// делаем деструктуризацию объекта   вскобки записываем те переменные которые мы хоти вытащить
+const {border, bg} = options.colors;
+console.log(border);
+
+// выводим ключи из объекта при помощи метода Object.keys()
+// console.log(Object.keys(options));
+// при помощи свойства length подсчитываем количество ключей 
+// console.log(Object.keys(options).length);
 
 // получаем доступ к свойству объекта при помощи () . или [''] 
 // console.log(options.name);
@@ -29,15 +43,20 @@ const options = {
 // console.log(options);
 
 // как перебрать свойства объекта при помощи for (каждое свойство let кеу in) 
-
-for (let key in options) {
-    // [object Object] пытаемся добраться с помощью if 
-    if (typeof(options[key]) === 'object') {
-        for(let i in options[key]) {
-            console.log(`Свойство ${i} имеет значение ${options[key][i]} `);
-            // добираемся до объекта внутри объекта options[key][i]
-        }
-    }
-    console.log(`Свойство ${key} имеет значение ${options[key]} `);
-    // options[key] значение ключа
-}
+// делаем счетчик с помощью переменной counter 
+// let counter = 0;
+// for (let key in options) {
+//     // [object Object] пытаемся добраться с помощью if 
+//     if (typeof(options[key]) === 'object') {
+//         for(let i in options[key]) {
+//             console.log(`Свойство ${i} имеет значение ${options[key][i]} `);
+//             // добираемся до объекта внутри объекта options[key][i]
+//             // counter++;
+//         }
+//     } else {
+//         console.log(`Свойство ${key} имеет значение ${options[key]} `);
+//         // options[key] значение ключа
+//         counter++;
+//     }
+// }
+// console.log(counter);
