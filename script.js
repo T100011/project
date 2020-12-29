@@ -163,3 +163,21 @@ console.log(h);
  console.log(items1);
  console.log(items2);
 //  Деструктуризация позволяет разбивать объект или массив на переменные при присвоении.
+
+// Дескрипторы, геттеры и сеттеры свойств https://learn.javascript.ru/descriptors-getters-setters
+// Флаги и дескрипторы свойств
+// синтаксис метод  Object.getOwnPropertyDescriptor позволяет получить всю информацию об объекте 
+
+let descriptor = Object.getOwnPropertyDescriptor(obj, propertyName);
+
+// пример 
+let user = {
+    name: 'John'
+};
+let descriptor = Object.getOwnPropertyDescriptor(user, 'name');
+
+console.log(JSON.stringify(descriptor, null, 2) );
+// дескриптор свойства 
+
+
+
