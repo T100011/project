@@ -1,64 +1,66 @@
 'use strict';
-// динамическая типизация в js 
+// задачи с собеседований на понимание основ л 27
+let x = 5;
+// console.log(x++); постфиксная форма выдает сначала певоначальный вариант 
+// console.log(++x); префиксная форма выдает сразу же результат 
+console.log(x++);
+// x = 5
 
-// To String
 
-// 1) String()
+console.log([ ] + false - null + true);
+// []- будет строка '', null + строка будет NaN 
+console.log([ ] + false - null + true); // "false" будет строка
 
-console.log(typeof(String(null)));
-console.log(typeof(String(4)));
+// NaN
 
-// 2) конкатенация (что-то складывают со строкой) при сложении со строкой все равно 
-// получается строка
 
-console.log(typeof(5 + ''));
 
-// пример 
+let y = 1; 
+let x = y = 2;
+console.log(x);
+// 2
 
-const num = 5;
+console.log([ ] + 1 + 2);
 
-console.log("https://vk.com/catalog/" + num);
+// "12"
 
-const fontSize = 26 + 'px';
+console.log('1'[0]);
+// [0] номер символа 
+// 1
 
-// To Number
+console.log(2 && 1 && null && 0 && undefined);
+// && логический оператор  и (сравнивает 2 выражения и то и то равно)
+// И запинается на лжи null -это ложь 
+// null
 
-// 1) Number()
+console.log !!(a && b); (a && b)
+console.log(!!(a && b) === (a && b));
 
-console.log(typeof(Number('4')));
+// false не равно т.к. !! превращает (a && b) в boolean - false, а  false !== (a && b)
 
-// 2) унарный плюс знак плюса ставят перед +b 
+console.log(null || 2 && 3 || 4);
+// первое действие будет 2 && 3 т.к. приоритет && выше чем || вт итоге будет 3 (3 вторая цифра в приоритете)
+// и запинается на лжи или запинается на правде null || 3 опять вернется 3
+// 3 || 4 опять или запинается на правде 3
+// смотреть  в таблицу операторов js 
 
-console.log(typeof(+'5'));
+// 3
 
-// 3) parseInt
+let a = [1, 2, 3]; 
+let b = [1, 2, 3];
+// a и b разные хранилища с разной информацией 
+console.log(a == b);
 
-console.log(typeof(parseInt('15px', 10)));
+// false 
 
-// на практике используют унарный плюс 
+console.log(+'Infinity');
+// Infinity
 
-let answ = +prompt('Hello', "");
+console.log('Ёжик' > 'яблоко');
+// строки происходит посимвольное сравнение 
+// false 
 
-// To boolean пустота всегда будет ложью
-
-// 0, '', null, undefined, NaN; это будет всегда false
-// 1) 1 способ нативный логических преобразований 
-let switcher = null;
-
-if (switcher) {
-    console.log('Working...');
-}
-
-switcher = 1;
-
-if (switcher) {
-    console.log('Working...');
-}
-
-// 2) способ логических преобразований Bolean
-
-console.log(typeof(Boolean('4')));
-
-// 3) 3 способ логических преобразований !!
-
-console.log(typeof(!!'44444'));
+console.log(0 || '' || 2 || undefined || true || falsе);
+// 0 - это false, ''- это false
+//  далее спотыкается на двойке- правде и остальной код дальше не пойдет 
+// 2
