@@ -1,37 +1,75 @@
 'use strict';
-// получение элементов со страницы c помощью метода getElementById()
-const box = document.getElementById('box');
+// действия с элементами  на странице
+const box = document.getElementById('box'),
+      btns = document.getElementsByTagName('button'),
+      circles = document.getElementsByClassName('circle'),
+      hearts = document.querySelectorAll('.heart'),
+      oneHeart = document.querySelector('.heart'),
+      wrapper = document.querySelector('.wrapper');
+// смотрим методы и свойства объекта box с помощью метода .dir 
+// console.dir(box);
+// обращаемся к объекту style 
+// box.style.backgroundColor = 'blue';
+// box.style.width = '500px';
 
-console.log(box);
+// обращаемся ко 2 кнопке
+btns[1].style.borderRadius = '100%';
 
-// const btns = document.getElementsByTagName('button'); 
+circles[0].style.backgroundColor = 'red';
 
-// получили не один элемент, а псевдомассив элементо (псевдомассив это массив без методов )
-// для того чтобы получить конкретную кнопку используем [] 
-// const btns = document.getElementsByTagName('button')[1];
-// console.log(btns);
+// присваивание несольким элементам при помощи cssText 
+box.style.cssText = 'background-color: blue; width: 500px';
 
-// второй способ 
+// используем циклы для того чтобы задать параметры нескольким элементам 
+// перебираем псевдомассив пока не закончатся все элементы hearts 
+// for (let i = 0; i < hearts.length; i++) {
+//     // для того чтобы постепенно получать  элементы обращаемся к hearts[i] 
+//     hearts[i].style.backgroundColor = 'blue';
+// }
 
-const btns = document.getElementsByTagName('button');
-console.log(btns[1]);
-
-// используем классы 
-
-const circles = document.getElementsByClassName('circle');
-console.log(circles);
-
-// новые методы querySelectorAll(); помещаем любой css селектор появл метод for each
-
-const hearts = document.querySelectorAll('.heart');
-// console.log(hearts[1]);
+// используем цикл forEach для того чтобы задать параметры нескольким элементам
+// задаем для каждого сердца имя item 
 hearts.forEach(item => {
-    console.log(item);
+    item.style.backgroundColor = 'blue';
 });
-// item это каждый элемент который будет находится в псевдомассиве hearts 
 
-// другой метод, который получает первый селектор document.querySelector();
+// создаем элементы при помощи скриптов document.createElement
+// создаем тег div внимание он существует только в Javascript 
+const div = document.createElement('div');
+// создаем текстовые узлы Ноды
+// const text = document.createTextNode('Тут был я');
+// изменяем элемент div  с помощью css класса свойства property classList
+//  метод add() добавляет определенный класс 
+div.classList.add('black');
 
-const oneHeart = document.querySelector('.heart');
+// добавим div в конец body с помощью метода append
 
-console.log(oneHeart); 
+// document.body.append(div);
+// добавим div в конец wrapper с помощью метода append
+// document.querySelector('.wrapper').append(div);
+// рефакторинг кода
+// wrapper.append(div);
+
+// добавим div в начало wrapper с помощью метода append 
+// wrapper.prepend(div);
+// устаревший код appendChild
+// wrapper.appendChild(div);
+
+// добавим div в начало heart с помощью метода before 
+// hearts[0].before(div);
+
+// добавим div в начало heart с помощью метода after 
+// hearts[0].after(div);
+// insertBefore старый метод 1 div 2 перед каким элементом мы вставляем
+// wrapper.insertBefore(div, hearts[0]);
+
+// удалим элементы со страницы c помощью метода remove
+
+// circles[0].remove();
+
+// старый метод удаления
+wrapper.removeChild(hearts[1]); 
+
+
+// заменяем один элемент другим replaceWith() (кружочком заменяем сердце)
+// hearts[0].replaceWith(circles[0]);
