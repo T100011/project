@@ -1,66 +1,37 @@
 'use strict';
-// задачи с собеседований на понимание основ л 27
-let x = 5;
-// console.log(x++); постфиксная форма выдает сначала певоначальный вариант 
-// console.log(++x); префиксная форма выдает сразу же результат 
-console.log(x++);
-// x = 5
+// получение элементов со страницы c помощью метода getElementById()
+const box = document.getElementById('box');
 
+console.log(box);
 
-console.log([ ] + false - null + true);
-// []- будет строка '', null + строка будет NaN 
-console.log([ ] + false - null + true); // "false" будет строка
+// const btns = document.getElementsByTagName('button'); 
 
-// NaN
+// получили не один элемент, а псевдомассив элементо (псевдомассив это массив без методов )
+// для того чтобы получить конкретную кнопку используем [] 
+// const btns = document.getElementsByTagName('button')[1];
+// console.log(btns);
 
+// второй способ 
 
+const btns = document.getElementsByTagName('button');
+console.log(btns[1]);
 
-let y = 1; 
-let x = y = 2;
-console.log(x);
-// 2
+// используем классы 
 
-console.log([ ] + 1 + 2);
+const circles = document.getElementsByClassName('circle');
+console.log(circles);
 
-// "12"
+// новые методы querySelectorAll(); помещаем любой css селектор появл метод for each
 
-console.log('1'[0]);
-// [0] номер символа 
-// 1
+const hearts = document.querySelectorAll('.heart');
+// console.log(hearts[1]);
+hearts.forEach(item => {
+    console.log(item);
+});
+// item это каждый элемент который будет находится в псевдомассиве hearts 
 
-console.log(2 && 1 && null && 0 && undefined);
-// && логический оператор  и (сравнивает 2 выражения и то и то равно)
-// И запинается на лжи null -это ложь 
-// null
+// другой метод, который получает первый селектор document.querySelector();
 
-console.log !!(a && b); (a && b)
-console.log(!!(a && b) === (a && b));
+const oneHeart = document.querySelector('.heart');
 
-// false не равно т.к. !! превращает (a && b) в boolean - false, а  false !== (a && b)
-
-console.log(null || 2 && 3 || 4);
-// первое действие будет 2 && 3 т.к. приоритет && выше чем || вт итоге будет 3 (3 вторая цифра в приоритете)
-// и запинается на лжи или запинается на правде null || 3 опять вернется 3
-// 3 || 4 опять или запинается на правде 3
-// смотреть  в таблицу операторов js 
-
-// 3
-
-let a = [1, 2, 3]; 
-let b = [1, 2, 3];
-// a и b разные хранилища с разной информацией 
-console.log(a == b);
-
-// false 
-
-console.log(+'Infinity');
-// Infinity
-
-console.log('Ёжик' > 'яблоко');
-// строки происходит посимвольное сравнение 
-// false 
-
-console.log(0 || '' || 2 || undefined || true || falsе);
-// 0 - это false, ''- это false
-//  далее спотыкается на двойке- правде и остальной код дальше не пойдет 
-// 2
+console.log(oneHeart);
