@@ -51,7 +51,7 @@ div.classList.add('black');
 // wrapper.append(div);
 
 // добавим div в начало wrapper с помощью метода append 
-// wrapper.prepend(div);
+wrapper.prepend(div);
 // устаревший код appendChild
 // wrapper.appendChild(div);
 
@@ -68,8 +68,20 @@ div.classList.add('black');
 // circles[0].remove();
 
 // старый метод удаления
-wrapper.removeChild(hearts[1]); 
+// wrapper.removeChild(hearts[1]); 
 
 
 // заменяем один элемент другим replaceWith() (кружочком заменяем сердце)
 // hearts[0].replaceWith(circles[0]);
+// cтарый код 
+// wrapper.replaceChild(circles[0], hearts[0]);
+
+// работаем с div добавляем innerHTML работаем со структурой
+// 1 вариант 
+// div.innerHTML = '<h1>Hello World</h1>';
+// 2 textContent вариант работает только с текстом вводит пользователь
+// div.textContent = 'Hello';
+
+// практика комбинируем 
+div.innerHTML = '<h1>Hello World</h1>';
+div.insertAdjacentHTML('afterbegin', '<h2>Hello</h2>');
