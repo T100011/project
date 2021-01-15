@@ -5,22 +5,15 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<title>Document</title>
-	<style>
-		body {
-			height: 1000px;
-		}
-		.box {
-			width: 150px;
-			height: 100px;
-			background-color: red;
-		}
-	</style>
-</head>
+	<!-- defer продолжать обрабатывать страницу скрипты с defer никогда не блокируют страницу и выполняются они последовательно. Также мы можем их использовать на верху, но лучше все равно использовать их внизу -->
+	<!-- <script defer src="script.js"></script>
+	<script defer src="test.js"></script> -->
 <body>
-	
-	<div class="box">
-		Touch me!
-	</div>
+	<!-- преимущества async страница не ждет асинхронный скриптов (содержимое просто обратывается) 2 события дом дерева не ждут друг друга (любой скрипт может выполнится первым) -->
+	<!-- <script async src="script.js"></script>
+	<script async src="test.js"></script> -->
+	<p>Hello World</p>
+	<p>Second message</p>
 
 	<script src="script.js"></script>
 </body>

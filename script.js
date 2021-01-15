@@ -1,39 +1,18 @@
-// события на мобильных устройствах (6 cобытий)
-// touchstart србатывает при касании на элемент 
-// toucmove действует при смещении пальцем 
-// touchend действие кода палец оторвался от элемента 
-// touchenter действие когда ведем элемень пальцем и он наскальзывает на событие другой элемент
-// touchleave когда палец продолжил скользить и ушел за пределы элемента 
-// touchcancel точка соприкосновения больше не регистрируется на поверхности 
+'use strict';
 
-// вешаем обработчик события 
-window.addEventListener('DOMContentLoaded', () => {
-    const box = document.querySelector('.box');
+const p = document.querySelectorAll('p');
+console.log(p);
 
-    box.addEventListener('touchstart', (event) => {
-        event.preventDefault();
-
-        console.log('Start');
-        console.log(event.touches);
-    });
-
-    box.addEventListener('touchmove', (event) => {
-        event.preventDefault();
-        
-        // console.log('Move');
-        console.log(event.targetTouches[0].pageX);
-    });
-
-    box.addEventListener('touchend', (event) => {
-        event.preventDefault();
-        
-        console.log('End');
-    });
-});
-cвойство
-// touches выдает список всех пальцев которые сейчас взимодействуют с экраном 
-// targetToughes 
-// changedTouches список пальцев которые участвуют в текущем событии 
-
-
-
+function loadScript(src) {
+    // создадим тег скрипт в js 
+    const script = document.createElement('script');
+    // путь элемента script 
+    script.src = src;
+    // меняем порядок загрузки с помощью свойства async 
+    script.async = false;
+    // помещаем элемент script на страницу будет загружаться после того как будет добавлен к документу
+    document.body.append(script);
+}
+// будут выполняться строго друг за другом  script.async = false; 
+loadScript('test.js');
+loadScript('some.js');
