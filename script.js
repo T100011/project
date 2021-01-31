@@ -1,69 +1,45 @@
-// скрипты время их выполнения setTimeout setInterval
-// const timerID = setTimeout(function(text) {
-//     console.log(text);
-// }, 2000, 'Hello');
+// работа с датами
+"use strict";
+// даты
+// const now = new Date(2021, 0, 21, 20);
+// милисекунды
+// const now = new Date(-99999999999);
+// const now = new Date("2021-01-26");
 
-// 2 dвариант функция логгер
-// const timerID = setTimeout(logger, 2000);
+// метод parse тоже самое что и const now = new Date("2021-01-26");
+// new.Date.parse("2021-01-26");
 
-// отмена действий таймера 
-// clearInterval(timerID);
+// console.log(now.setHours(40));
+// console.log(now);
 
-// function logger () {
-//     console.log('text');
-// }
-// работает и без переменной 
-// setTimeout(logger, 2000);
+// console.log(now);
 
-// кликаем по кнопке отмена действий
+// методы гетеры
+// 1 получение компонентов даты
 
-const btn = document.querySelector('.btn');
-let timerID,
-    i = 0;
+// console.log(now.getFullYear());
+// console.log(now.getMonth());
+// console.log(now.getDate());
+// // нумерация дня недели
+// console.log(now.getDay());
+// console.log(now.getHours());
+// console.log(now.getUTCHours());
 
-// делаем перемещение  квадрата
+// метод получает разницу между часовым и utc разница в минутах
+// console.log(now.getTimezoneOffset());
+// console.log(now.getTimezoneOffset() / 60);
+// количество милисекунд  с 1970 года
+// console.log(now.getTime());
 
-function myAnimation() {
-    // переменная для квадрата который будет перемещаться 
-    const elem = document.querySelector('.box');
-    // позиция которая будет изменяться 
-    let pos = 0;
+// методы сетеры set
 
-    // функция которая будет запускаться через определенный  промежуток времени 
-    
-    const id = setInterval(frame, 10);
-    function frame() {
-        if (pos == 300) {
-            clearInterval(id);
-        } else {
-            pos++;
-            elem.style.top = pos + 'px';
-            elem.style.left = pos + 'px';
-        }
-    }
+let start = new Date();
+
+for (let i = 0; i < 100000; i++) {
+  // ** возводит в степень
+  let some = i ** 3;
 }
 
+let end = new Date();
 
-btn.addEventListener('click', myAnimation);
-
-// btn.addEventListener('click', () => {
-//     // const timerID = setTimeout(logger, 2000);
-//     // timerID = setInterval(logger, 500);
-
-// });
-
-
-// function logger () {
-//     if (i === 3) {
-//         clearInterval(timerID);
-//     }
-//     console.log('text');
-//     i++;
-// }
-
-// рекурсия это функция которая сама себя внутри вызывает 
-// рекурсивный вызов сеттаймаут 
-// let id = setTimeout(function log() {
-//     console.log('Hello');
-//     id = setTimeout(log, 500);
-// }, 500);
+alert(`Цикл отработал за ${end - start} миллисекунд`);
